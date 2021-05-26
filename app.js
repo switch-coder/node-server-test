@@ -3,7 +3,9 @@ const morgan = require('morgan');
 const app = express();
 const port = process.env.port || 3001;
 const path = require("path");
+const cors = require("cors");
 
+app.use(cors());
 const events = [
     {
         id: 1,
@@ -29,6 +31,8 @@ const events = [
 ]
 
 app.get("/api/getEvents", (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
     res.json(events);
 })
 
