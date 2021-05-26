@@ -27,11 +27,9 @@ const events = [
     }
 ]
 
-
 app.get("/api/getEvents", (req, res) => {
     res.json(events);
 })
-
 
 app.use(morgan("dev"))
 app.use(express.static(path.join(__dirname, "../dist")));
@@ -39,7 +37,6 @@ app.use(express.static(path.join(__dirname, "../dist")));
 app.get('/', (req, res, next) => {
     res.send('start server ')
 });
-
 
 app.listen(port, () => {
     console.log(`Server is running at ${port}`);
