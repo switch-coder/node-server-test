@@ -19,13 +19,14 @@ const events = [
         name: "[샐러드]저당 맛있는 색깔의 콥셀러드",
         meta:["피자","스폰지밥","맛좋은","게살사장"],
         image:
-            "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
     },
     {
         id: 3,
         name: "[피자] 스폰지밥 같은 맛좋은 피자",
         meta:["피자","스폰지밥","맛좋은","게살사장"],
-        image:  "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        image:              "https://images.unsplash.com/photo-1547584370-2cc98b8b8dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+
 
     }
 ]
@@ -33,7 +34,17 @@ const events = [
 app.get("/api/getEvents", (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    console.log("getEvents")
     res.json(events);
+})
+
+app.get("/api/eventDetail", (req,res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    console.log("getDetails")
+
+    console.log(req);
+    res.json(events[0])
 })
 
 app.use(morgan("dev"))
