@@ -42,9 +42,7 @@ app.get("/api/eventDetail", (req,res) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     console.log("getDetails")
-
-    console.log(req);
-    res.json(events[0])
+    res.json(events.find(e => e.id === parseInt(req.query.id)))
 })
 
 app.use(morgan("dev"))
